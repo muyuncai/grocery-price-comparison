@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './App.css';
 
 const mockData = {
   milk: [
@@ -23,33 +24,42 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h1>Grocery Price Comparison</h1>
-      <input
-        type="text"
-        placeholder="Enter grocery item..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
+    <div className="amazon-container">
+      <header className="header">
+        <h1>Grocery Price Comparison</h1>
+      </header>
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Search for grocery items..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button className="search-button" onClick={handleSearch}>
+          Search
+        </button>
+      </div>
 
       {results.length > 0 && (
-        <table border="1" style={{ marginTop: "20px", width: "100%" }}>
-          <thead>
-            <tr>
-              <th>Store</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {results.map((item, index) => (
-              <tr key={index}>
-                <td>{item.store}</td>
-                <td>{item.price}</td>
+        <div className="results-container">
+          <table className="results-table">
+            <thead>
+              <tr>
+                <th>Store</th>
+                <th>Price</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {results.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.store}</td>
+                  <td className="price">{item.price}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
