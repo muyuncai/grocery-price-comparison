@@ -71,6 +71,7 @@
   border: 1px solid #888C8C;
   border-radius: 4px;
   outline: none;
+  width: 400px;
 }
 
 .search-input:focus {
@@ -121,4 +122,32 @@
 .price {
   color: #B12704;
   font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .search-input {
+    width: 90%;
+    min-height: 60px;
+    height: auto;
+    white-space: normal;
+    word-wrap: break-word;
+    text-overflow: clip;
+    padding: 5px;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+  }
+  
+  .search-input::placeholder {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    line-height: 1.4;
+  }
+  
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }

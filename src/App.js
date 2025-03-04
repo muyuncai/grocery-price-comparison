@@ -32,9 +32,14 @@ function App() {
         <input
           type="text"
           className="search-input"
-          placeholder="Search for grocery items..."
+          placeholder="Input grocery items... this demo only works for milk and bread"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSearch();
+            }
+          }}
         />
         <button className="search-button" onClick={handleSearch}>
           Search
